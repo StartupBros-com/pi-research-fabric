@@ -13,6 +13,7 @@ jobs:
   autopilot:
     if: >-
       github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.head_repository.full_name == github.repository &&
       startsWith(github.event.workflow_run.head_branch, 'dependabot/')
     uses: StartupBros-com/shared-workflows/.github/workflows/dependency-autopilot.yml@9c575d5d80cf93f124190b122d037835244c8448 # feat: parametrize runner
     with:
